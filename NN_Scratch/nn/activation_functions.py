@@ -10,7 +10,7 @@ class Activation_Fn:
 
 class ReLU(Activation_Fn):
     def forward(self):
-        return np.maximum(0, self.x)
+        return np.max(0, self.x) #TODO: add axis
     def backward(self):
         return np.where(self.x > 0, 1, 0)
     
@@ -24,9 +24,9 @@ class Sigmoid(Activation_Fn):
 class Softmax(Activation_Fn):
     def forward(self):
         e_x = np.exp(self.x)
-        return e_x / np.sum(e_x) #axis should be specified, know which one
+        return e_x / np.sum(e_x) #TODO: add axis
     def backward(self):
-        return super().backward() #Should be worked on
+        return super().backward() #TODO: Calculate and implement
 
 class Tanh(Activation_Fn):
     def forward(self):
