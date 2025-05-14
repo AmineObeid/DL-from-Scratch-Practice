@@ -2,7 +2,7 @@ import numpy as np
 
 class Tensor:
     # So far accepting only numpy arrays of dtype float 32 for simplicity
-    def __init__(self, data, grad_flag: bool = False, grad = None):
+    def __init__(self, data, grad_flag: bool = False, grad = None, parents = None, op = None):
 
         if isinstance(data, np.ndarray) and data.dtype == np.float32:
             self.data = data
@@ -13,6 +13,8 @@ class Tensor:
               
         self.grad_flag = grad_flag
         self.grad = grad
+        self.parents = parents
+        self.op = op
 
     def __repr__(self):
         pass #TODO: Implement
